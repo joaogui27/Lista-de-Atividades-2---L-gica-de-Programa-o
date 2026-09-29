@@ -1,0 +1,204 @@
+﻿Atividade 1
+
+
+import java.util.Scanner;
+
+
+public class Atividade1 {
+    public static void main(String[] args) {
+        
+        Scanner ler=new Scanner(System.in);
+        
+        int idade[]=new int[3];
+        
+        //Inserindo os valores
+        System.out.println("INSIRA AS IDADES: ");
+        for(int i=0;i<idade.length;i++){
+            idade[i]=ler.nextInt();
+            
+            while(idade[i]<5||idade[i]>100){
+                System.out.println("Valor invalido! Digite novamente.");
+                idade[i]=ler.nextInt();
+            }
+        }
+        
+        
+        //Bubble Sort para organizar em ordem crescente
+        for(int i=0;i<idade.length;i++){
+            for(int j=0;j<idade.length-1;j++){
+                if(idade[j]>idade[j+1]){
+                    int temp=idade[j];
+                    idade[j]=idade[j+1];
+                    idade[j+1]=temp;
+                }
+            }
+        }
+        
+        System.out.println("Idade da Camila: "+idade[1]+" anos.");
+        
+    }  
+}
+
+
+Atividade 2
+
+
+import java.util.Scanner;
+
+
+public class Atividade2 {
+    public static void main(String[] args) {
+        Scanner ler=new Scanner(System.in);
+        
+        char jogos[]=new char[6];
+        int vitorias=0, derrotas=0;
+        
+        //Inserindo valores
+        System.out.println("INSIRA O RESULTADO DOS JOGOS: ");
+        System.out.println(" ");
+        System.out.println("--(V)Venceu & (P)Perdeu--");
+        
+        for(int i=0;i<jogos.length;i++){
+            jogos[i]=ler.next().charAt(0);
+            
+            while(jogos[i]!='V' && jogos[i]!='P'){
+                System.out.println("Resultado invalido! Digite novamente.");
+                jogos[i]=ler.next().charAt(0);
+            }
+            
+            if(jogos[i]=='V'){
+                vitorias++;
+            }
+            if(jogos[i]=='P'){
+                derrotas++;
+            }
+        }
+        
+        //Definindo o grupo
+        int grupo=0;
+        if(vitorias == 0){
+            grupo = -1;
+        }else if(vitorias <= 2){
+            grupo = 1;
+        }else if(vitorias <= 4){
+            grupo = 2;
+        }else{
+            grupo = 1;
+        }
+        System.out.println("Grupo "+grupo);
+    }
+}
+
+
+Atividade 3
+
+
+import java.util.Scanner;
+
+
+public class Atividade3 {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+
+
+        System.out.println("Valor S: ");
+        int S = ler.nextInt();
+        
+        System.out.println("Valor A: ");
+        int A = ler.nextInt();
+        
+        System.out.println("Valor B: ");
+        int B = ler.nextInt();
+
+
+        int quantidade = 0;
+
+
+        for (int i = A; i <= B; i++) {
+            int numero = i;
+            int soma = 0;
+
+
+            while (numero > 0) {
+                soma += numero % 10;
+                numero /= 10;
+            }
+
+
+            if (soma == S) {
+                quantidade++;
+            }
+        }
+
+
+        System.out.println(quantidade);
+    }
+}
+
+
+Atividade 4
+
+
+import java.util.Scanner;
+
+
+public class Atividade4 {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+
+
+        System.out.print("N: ");
+        int N = ler.nextInt();
+
+
+        int pecas = (N + 1) * (N + 2) / 2;
+
+
+        System.out.println(pecas);
+    }
+}
+
+
+Atividade 5
+
+
+import java.util.Scanner;
+
+
+public class Atividade5 {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+
+
+        System.out.println("INSIRA OS DADOS DAS DUAS CHARRETES:");
+        System.out.println("Informe o numero, a distancia e a velocidade de cada charrete:");
+        
+        System.out.println("Primeira Charrete");
+        System.out.print("Numero: ");
+        int N1 = ler.nextInt();
+        System.out.print("Distancia(m): ");
+        int D1 = ler.nextInt();
+        System.out.print("Velocidade(km/h): ");
+        int V1 = ler.nextInt();
+
+
+        System.out.println("Segunda Charrete");
+        System.out.print("Numero: ");
+        int N2 = ler.nextInt();
+        System.out.print("Distancia(m): ");
+        int D2 = ler.nextInt();
+        System.out.print("Velocidade(km/h): ");
+        int V2 = ler.nextInt();
+
+
+        double tempo1 = (double) D1 / (V1 * 1000.0 / 3600.0);
+        double tempo2 = (double) D2 / (V2 * 1000.0 / 3600.0);
+
+
+        if (tempo1 < tempo2) {
+            System.out.println("Charrete vencedora: " + N1);
+        } else {
+            System.out.println("Charrete vencedora: " + N2);
+        }
+    }
+}
